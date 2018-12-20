@@ -131,26 +131,14 @@ namespace CryptoLibrary
 
         public byte[] GenerateRandomKey()
         {
-            //Random random = new Random((int)DateTime.Now.Ticks);
-            //this.key = new byte[16];
-
-            //bool zeroByteExist;
-            //do
-            //{
-            //    random.NextBytes(this.key);
-            //    zeroByteExist = false;
-            //    for (int i = 0; i < this.key.Length; i++)
-            //    {
-            //        if (this.key[i] == (byte)0)
-            //        {
-            //            zeroByteExist = true;
-            //        }
-            //    }
-            //} while (zeroByteExist);
-            Console.WriteLine("HelloWorldHello0".Length);
-            this.key = utf8.GetBytes("HelloWorldHello0");
-            
-            return this.key;
+            Random rnd = new Random((int)DateTime.Now.Ticks);
+            var bulder = new StringBuilder();
+            while (bulder.Length < 16)
+            {
+                bulder.Append(rnd.Next(10).ToString());
+            }
+            this.key = Encoding.UTF8.GetBytes(bulder.ToString());
+            return key;
         }
 
         public bool SetAlgorithamProperties(IDictionary<string, byte[]> specArguments)
@@ -171,5 +159,7 @@ namespace CryptoLibrary
             key = input;
             return true;
         }
+
+        public override string ToString() { return "XXTEA"; }
     }
 }

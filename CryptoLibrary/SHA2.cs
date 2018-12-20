@@ -269,5 +269,10 @@ namespace CryptoLibrary
         }
 
         #endregion
+
+        public override string ToString()
+        {
+            return "SHA";
+        }
     }
 }

@@ -78,9 +78,10 @@ namespace CryptoLibrary
             Random random = new Random((int)DateTime.Now.Ticks);
 
             byte[] nKey = Encoding.Default.GetBytes(origin.ToCharArray().OrderBy(x => random.Next()).ToArray());
-           
+           char [] r = origin.ToCharArray().OrderBy(x => random.Next()).ToArray();
 
-            for(int i = 0; i < origin.Length;i++)
+
+            for (int i = 0; i < origin.Length;i++)
             {
                 this.coding.Add(origin[i].ToString(), nKey[i]);
             }
@@ -126,6 +127,11 @@ namespace CryptoLibrary
                 decoding.Add(input[i], origin[i].ToString());
             }
             return true;
+        }
+
+        public override string ToString()
+        {
+            return "Simple Substitution";
         }
     }
 }
