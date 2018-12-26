@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CryptoClientForm));
             this.btnEncode = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnDecode = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnSaveInFile = new MaterialSkin.Controls.MaterialRaisedButton();
@@ -48,19 +49,23 @@
             this.mlbTextLable = new MaterialSkin.Controls.MaterialLabel();
             this.mlKey = new MaterialSkin.Controls.MaterialLabel();
             this.gbAlgorithm = new System.Windows.Forms.GroupBox();
-            this.msOptions = new System.Windows.Forms.MenuStrip();
             this.lbHint = new MaterialSkin.Controls.MaterialLabel();
+            this.msOptions = new System.Windows.Forms.MenuStrip();
             this.gbFiles = new System.Windows.Forms.GroupBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.materialRaisedButton2 = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btnDecryptAll = new MaterialSkin.Controls.MaterialFlatButton();
+            this.btnEncryptAll = new MaterialSkin.Controls.MaterialFlatButton();
+            this.btnDecryptSeleced = new MaterialSkin.Controls.MaterialFlatButton();
+            this.bntEncryptSelected = new MaterialSkin.Controls.MaterialFlatButton();
+            this.btnDestPath = new MaterialSkin.Controls.MaterialFlatButton();
+            this.btnOrgPath = new MaterialSkin.Controls.MaterialFlatButton();
+            this.lbEncryptedFiles = new System.Windows.Forms.ListBox();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
-            this.listBox3 = new System.Windows.Forms.ListBox();
-            this.materialRaisedButton3 = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.materialRaisedButton4 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.tbSrcPath = new System.Windows.Forms.TextBox();
+            this.tbDstPath = new System.Windows.Forms.TextBox();
+            this.materialRaisedButton2 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.lbFilesToEncrypt = new System.Windows.Forms.ListBox();
             this.gbKnapSackProp.SuspendLayout();
             this.gbAlgorithm.SuspendLayout();
             this.gbFiles.SuspendLayout();
@@ -334,6 +339,19 @@
             this.gbAlgorithm.TabStop = false;
             this.gbAlgorithm.Text = "Algorithm";
             // 
+            // lbHint
+            // 
+            this.lbHint.AutoSize = true;
+            this.lbHint.Depth = 0;
+            this.lbHint.Font = new System.Drawing.Font("Nazanintar", 11F);
+            this.lbHint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lbHint.Location = new System.Drawing.Point(6, 300);
+            this.lbHint.MouseState = MaterialSkin.MouseState.Hover;
+            this.lbHint.Name = "lbHint";
+            this.lbHint.Size = new System.Drawing.Size(200, 23);
+            this.lbHint.TabIndex = 21;
+            this.lbHint.Text = "*separete key values with space";
+            // 
             // msOptions
             // 
             this.msOptions.BackColor = System.Drawing.SystemColors.HighlightText;
@@ -343,94 +361,141 @@
             this.msOptions.TabIndex = 12;
             this.msOptions.Text = "menuStrip1";
             // 
-            // lbHint
-            // 
-            this.lbHint.AutoSize = true;
-            this.lbHint.Depth = 0;
-            this.lbHint.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.lbHint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbHint.Location = new System.Drawing.Point(6, 300);
-            this.lbHint.MouseState = MaterialSkin.MouseState.Hover;
-            this.lbHint.Name = "lbHint";
-            this.lbHint.Size = new System.Drawing.Size(160, 13);
-            this.lbHint.TabIndex = 21;
-            this.lbHint.Text = "*separete key values with space";
-            // 
             // gbFiles
             // 
             this.gbFiles.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.gbFiles.Controls.Add(this.materialRaisedButton4);
-            this.gbFiles.Controls.Add(this.materialRaisedButton3);
-            this.gbFiles.Controls.Add(this.listBox3);
+            this.gbFiles.Controls.Add(this.btnDecryptAll);
+            this.gbFiles.Controls.Add(this.btnEncryptAll);
+            this.gbFiles.Controls.Add(this.btnDecryptSeleced);
+            this.gbFiles.Controls.Add(this.bntEncryptSelected);
+            this.gbFiles.Controls.Add(this.btnDestPath);
+            this.gbFiles.Controls.Add(this.btnOrgPath);
+            this.gbFiles.Controls.Add(this.lbEncryptedFiles);
             this.gbFiles.Controls.Add(this.materialLabel2);
             this.gbFiles.Controls.Add(this.materialLabel3);
-            this.gbFiles.Controls.Add(this.textBox2);
-            this.gbFiles.Controls.Add(this.textBox1);
+            this.gbFiles.Controls.Add(this.tbSrcPath);
+            this.gbFiles.Controls.Add(this.tbDstPath);
             this.gbFiles.Controls.Add(this.materialRaisedButton2);
             this.gbFiles.Controls.Add(this.materialRaisedButton1);
-            this.gbFiles.Controls.Add(this.listBox1);
+            this.gbFiles.Controls.Add(this.lbFilesToEncrypt);
             this.gbFiles.Location = new System.Drawing.Point(803, 77);
             this.gbFiles.Name = "gbFiles";
-            this.gbFiles.Size = new System.Drawing.Size(485, 608);
+            this.gbFiles.Size = new System.Drawing.Size(609, 608);
             this.gbFiles.TabIndex = 23;
             this.gbFiles.TabStop = false;
             this.gbFiles.Text = "Files";
             // 
-            // listBox1
+            // btnDecryptAll
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(7, 139);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(472, 160);
-            this.listBox1.TabIndex = 0;
+            this.btnDecryptAll.AutoSize = true;
+            this.btnDecryptAll.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnDecryptAll.Depth = 0;
+            this.btnDecryptAll.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnDecryptAll.Icon = ((System.Drawing.Image)(resources.GetObject("btnDecryptAll.Icon")));
+            this.btnDecryptAll.Location = new System.Drawing.Point(465, 308);
+            this.btnDecryptAll.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnDecryptAll.MouseState = MaterialSkin.MouseState.Hover;
+            this.btnDecryptAll.Name = "btnDecryptAll";
+            this.btnDecryptAll.Primary = false;
+            this.btnDecryptAll.Size = new System.Drawing.Size(138, 36);
+            this.btnDecryptAll.TabIndex = 33;
+            this.btnDecryptAll.Text = "Decrypt all";
+            this.btnDecryptAll.UseVisualStyleBackColor = true;
+            this.btnDecryptAll.Click += new System.EventHandler(this.btnDecryptAll_Click);
             // 
-            // materialRaisedButton1
+            // btnEncryptAll
             // 
-            this.materialRaisedButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialRaisedButton1.Depth = 0;
-            this.materialRaisedButton1.Icon = null;
-            this.materialRaisedButton1.Location = new System.Drawing.Point(7, 549);
-            this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.Hover;
-            this.materialRaisedButton1.Name = "materialRaisedButton1";
-            this.materialRaisedButton1.Primary = true;
-            this.materialRaisedButton1.Size = new System.Drawing.Size(241, 48);
-            this.materialRaisedButton1.TabIndex = 2;
-            this.materialRaisedButton1.Text = "Upload";
-            this.materialRaisedButton1.UseVisualStyleBackColor = true;
+            this.btnEncryptAll.AutoSize = true;
+            this.btnEncryptAll.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnEncryptAll.Depth = 0;
+            this.btnEncryptAll.Icon = ((System.Drawing.Image)(resources.GetObject("btnEncryptAll.Icon")));
+            this.btnEncryptAll.Location = new System.Drawing.Point(318, 308);
+            this.btnEncryptAll.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnEncryptAll.MouseState = MaterialSkin.MouseState.Hover;
+            this.btnEncryptAll.Name = "btnEncryptAll";
+            this.btnEncryptAll.Primary = false;
+            this.btnEncryptAll.Size = new System.Drawing.Size(139, 36);
+            this.btnEncryptAll.TabIndex = 32;
+            this.btnEncryptAll.Text = "Encrypt all";
+            this.btnEncryptAll.UseVisualStyleBackColor = true;
+            this.btnEncryptAll.Click += new System.EventHandler(this.btnEncryptAll_Click);
             // 
-            // materialRaisedButton2
+            // btnDecryptSeleced
             // 
-            this.materialRaisedButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialRaisedButton2.Depth = 0;
-            this.materialRaisedButton2.Icon = null;
-            this.materialRaisedButton2.Location = new System.Drawing.Point(254, 549);
-            this.materialRaisedButton2.MouseState = MaterialSkin.MouseState.Hover;
-            this.materialRaisedButton2.Name = "materialRaisedButton2";
-            this.materialRaisedButton2.Primary = true;
-            this.materialRaisedButton2.Size = new System.Drawing.Size(225, 48);
-            this.materialRaisedButton2.TabIndex = 3;
-            this.materialRaisedButton2.Text = "Download";
-            this.materialRaisedButton2.UseVisualStyleBackColor = true;
+            this.btnDecryptSeleced.AutoSize = true;
+            this.btnDecryptSeleced.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnDecryptSeleced.Depth = 0;
+            this.btnDecryptSeleced.Icon = ((System.Drawing.Image)(resources.GetObject("btnDecryptSeleced.Icon")));
+            this.btnDecryptSeleced.Location = new System.Drawing.Point(168, 308);
+            this.btnDecryptSeleced.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnDecryptSeleced.MouseState = MaterialSkin.MouseState.Hover;
+            this.btnDecryptSeleced.Name = "btnDecryptSeleced";
+            this.btnDecryptSeleced.Primary = false;
+            this.btnDecryptSeleced.Size = new System.Drawing.Size(142, 36);
+            this.btnDecryptSeleced.TabIndex = 31;
+            this.btnDecryptSeleced.Text = "Decrypt file";
+            this.btnDecryptSeleced.UseVisualStyleBackColor = true;
+            this.btnDecryptSeleced.Click += new System.EventHandler(this.btnDecryptSeleced_Click);
             // 
-            // textBox1
+            // bntEncryptSelected
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.textBox1.Location = new System.Drawing.Point(177, 108);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBox1.Size = new System.Drawing.Size(302, 25);
-            this.textBox1.TabIndex = 19;
+            this.bntEncryptSelected.AutoSize = true;
+            this.bntEncryptSelected.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.bntEncryptSelected.Depth = 0;
+            this.bntEncryptSelected.Icon = ((System.Drawing.Image)(resources.GetObject("bntEncryptSelected.Icon")));
+            this.bntEncryptSelected.Location = new System.Drawing.Point(7, 308);
+            this.bntEncryptSelected.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.bntEncryptSelected.MouseState = MaterialSkin.MouseState.Hover;
+            this.bntEncryptSelected.Name = "bntEncryptSelected";
+            this.bntEncryptSelected.Primary = false;
+            this.bntEncryptSelected.Size = new System.Drawing.Size(143, 36);
+            this.bntEncryptSelected.TabIndex = 30;
+            this.bntEncryptSelected.Text = "Encrypt file";
+            this.bntEncryptSelected.UseVisualStyleBackColor = true;
+            this.bntEncryptSelected.Click += new System.EventHandler(this.bntEncryptSelected_Click);
             // 
-            // textBox2
+            // btnDestPath
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.textBox2.Location = new System.Drawing.Point(177, 76);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBox2.Size = new System.Drawing.Size(302, 25);
-            this.textBox2.TabIndex = 20;
+            this.btnDestPath.AutoSize = true;
+            this.btnDestPath.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnDestPath.Depth = 0;
+            this.btnDestPath.Icon = ((System.Drawing.Image)(resources.GetObject("btnDestPath.Icon")));
+            this.btnDestPath.Location = new System.Drawing.Point(558, 80);
+            this.btnDestPath.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnDestPath.MouseState = MaterialSkin.MouseState.Hover;
+            this.btnDestPath.Name = "btnDestPath";
+            this.btnDestPath.Primary = false;
+            this.btnDestPath.Size = new System.Drawing.Size(44, 36);
+            this.btnDestPath.TabIndex = 28;
+            this.btnDestPath.UseVisualStyleBackColor = true;
+            this.btnDestPath.Click += new System.EventHandler(this.btnDestPath_Click);
+            // 
+            // btnOrgPath
+            // 
+            this.btnOrgPath.AutoSize = true;
+            this.btnOrgPath.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnOrgPath.Depth = 0;
+            this.btnOrgPath.Icon = ((System.Drawing.Image)(resources.GetObject("btnOrgPath.Icon")));
+            this.btnOrgPath.Location = new System.Drawing.Point(558, 35);
+            this.btnOrgPath.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnOrgPath.MouseState = MaterialSkin.MouseState.Hover;
+            this.btnOrgPath.Name = "btnOrgPath";
+            this.btnOrgPath.Primary = false;
+            this.btnOrgPath.Size = new System.Drawing.Size(44, 36);
+            this.btnOrgPath.TabIndex = 27;
+            this.btnOrgPath.UseVisualStyleBackColor = true;
+            this.btnOrgPath.Click += new System.EventHandler(this.btnOrgPath_Click);
+            // 
+            // lbEncryptedFiles
+            // 
+            this.lbEncryptedFiles.FormattingEnabled = true;
+            this.lbEncryptedFiles.HorizontalScrollbar = true;
+            this.lbEncryptedFiles.Location = new System.Drawing.Point(7, 353);
+            this.lbEncryptedFiles.Name = "lbEncryptedFiles";
+            this.lbEncryptedFiles.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lbEncryptedFiles.Size = new System.Drawing.Size(595, 160);
+            this.lbEncryptedFiles.Sorted = true;
+            this.lbEncryptedFiles.TabIndex = 24;
             // 
             // materialLabel2
             // 
@@ -438,7 +503,7 @@
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Nazanintar", 11F);
             this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel2.Location = new System.Drawing.Point(14, 110);
+            this.materialLabel2.Location = new System.Drawing.Point(9, 88);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.Hover;
             this.materialLabel2.Name = "materialLabel2";
             this.materialLabel2.Size = new System.Drawing.Size(141, 23);
@@ -451,58 +516,85 @@
             this.materialLabel3.Depth = 0;
             this.materialLabel3.Font = new System.Drawing.Font("Nazanintar", 11F);
             this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel3.Location = new System.Drawing.Point(14, 78);
+            this.materialLabel3.Location = new System.Drawing.Point(6, 46);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.Hover;
             this.materialLabel3.Name = "materialLabel3";
             this.materialLabel3.Size = new System.Drawing.Size(143, 23);
             this.materialLabel3.TabIndex = 23;
             this.materialLabel3.Text = "Path to original folder";
             // 
-            // listBox3
+            // tbSrcPath
             // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.Location = new System.Drawing.Point(7, 383);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(472, 160);
-            this.listBox3.TabIndex = 24;
+            this.tbSrcPath.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tbSrcPath.Location = new System.Drawing.Point(156, 44);
+            this.tbSrcPath.Multiline = true;
+            this.tbSrcPath.Name = "tbSrcPath";
+            this.tbSrcPath.ReadOnly = true;
+            this.tbSrcPath.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tbSrcPath.Size = new System.Drawing.Size(395, 25);
+            this.tbSrcPath.TabIndex = 20;
+            this.tbSrcPath.MouseHover += new System.EventHandler(this.tbSrcPath_MouseHover);
             // 
-            // materialRaisedButton3
+            // tbDstPath
             // 
-            this.materialRaisedButton3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialRaisedButton3.Depth = 0;
-            this.materialRaisedButton3.Icon = null;
-            this.materialRaisedButton3.Location = new System.Drawing.Point(7, 315);
-            this.materialRaisedButton3.MouseState = MaterialSkin.MouseState.Hover;
-            this.materialRaisedButton3.Name = "materialRaisedButton3";
-            this.materialRaisedButton3.Primary = true;
-            this.materialRaisedButton3.Size = new System.Drawing.Size(241, 48);
-            this.materialRaisedButton3.TabIndex = 25;
-            this.materialRaisedButton3.Text = "Encrypt selected file";
-            this.materialRaisedButton3.UseVisualStyleBackColor = true;
+            this.tbDstPath.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tbDstPath.Location = new System.Drawing.Point(156, 89);
+            this.tbDstPath.Multiline = true;
+            this.tbDstPath.Name = "tbDstPath";
+            this.tbDstPath.ReadOnly = true;
+            this.tbDstPath.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tbDstPath.Size = new System.Drawing.Size(395, 25);
+            this.tbDstPath.TabIndex = 19;
+            this.tbDstPath.MouseHover += new System.EventHandler(this.tbDstPath_MouseHover);
             // 
-            // materialRaisedButton4
+            // materialRaisedButton2
             // 
-            this.materialRaisedButton4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialRaisedButton4.Depth = 0;
-            this.materialRaisedButton4.Icon = null;
-            this.materialRaisedButton4.Location = new System.Drawing.Point(254, 315);
-            this.materialRaisedButton4.MouseState = MaterialSkin.MouseState.Hover;
-            this.materialRaisedButton4.Name = "materialRaisedButton4";
-            this.materialRaisedButton4.Primary = true;
-            this.materialRaisedButton4.Size = new System.Drawing.Size(225, 48);
-            this.materialRaisedButton4.TabIndex = 26;
-            this.materialRaisedButton4.Text = "Decrypt selected fie";
-            this.materialRaisedButton4.UseVisualStyleBackColor = true;
+            this.materialRaisedButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialRaisedButton2.Depth = 0;
+            this.materialRaisedButton2.Icon = null;
+            this.materialRaisedButton2.Location = new System.Drawing.Point(318, 519);
+            this.materialRaisedButton2.MouseState = MaterialSkin.MouseState.Hover;
+            this.materialRaisedButton2.Name = "materialRaisedButton2";
+            this.materialRaisedButton2.Primary = true;
+            this.materialRaisedButton2.Size = new System.Drawing.Size(285, 48);
+            this.materialRaisedButton2.TabIndex = 3;
+            this.materialRaisedButton2.Text = "Download";
+            this.materialRaisedButton2.UseVisualStyleBackColor = true;
+            // 
+            // materialRaisedButton1
+            // 
+            this.materialRaisedButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialRaisedButton1.Depth = 0;
+            this.materialRaisedButton1.Icon = null;
+            this.materialRaisedButton1.Location = new System.Drawing.Point(6, 519);
+            this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.Hover;
+            this.materialRaisedButton1.Name = "materialRaisedButton1";
+            this.materialRaisedButton1.Primary = true;
+            this.materialRaisedButton1.Size = new System.Drawing.Size(304, 48);
+            this.materialRaisedButton1.TabIndex = 2;
+            this.materialRaisedButton1.Text = "Upload";
+            this.materialRaisedButton1.UseVisualStyleBackColor = true;
+            // 
+            // lbFilesToEncrypt
+            // 
+            this.lbFilesToEncrypt.FormattingEnabled = true;
+            this.lbFilesToEncrypt.HorizontalScrollbar = true;
+            this.lbFilesToEncrypt.Location = new System.Drawing.Point(7, 139);
+            this.lbFilesToEncrypt.Name = "lbFilesToEncrypt";
+            this.lbFilesToEncrypt.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lbFilesToEncrypt.Size = new System.Drawing.Size(596, 160);
+            this.lbFilesToEncrypt.Sorted = true;
+            this.lbFilesToEncrypt.TabIndex = 0;
             // 
             // CryptoClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1300, 696);
+            this.ClientSize = new System.Drawing.Size(1430, 696);
             this.Controls.Add(this.gbFiles);
             this.Controls.Add(this.gbAlgorithm);
-            this.MaximumSize = new System.Drawing.Size(1300, 696);
-            this.MinimumSize = new System.Drawing.Size(1300, 696);
+            this.MaximumSize = new System.Drawing.Size(1430, 696);
+            this.MinimumSize = new System.Drawing.Size(1430, 696);
             this.Name = "CryptoClientForm";
             this.ShowIcon = false;
             this.Text = "Crypto Client";
@@ -543,14 +635,18 @@
         private System.Windows.Forms.GroupBox gbFiles;
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton2;
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
-        private System.Windows.Forms.ListBox listBox1;
-        private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton4;
-        private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton3;
-        private System.Windows.Forms.ListBox listBox3;
+        private System.Windows.Forms.ListBox lbFilesToEncrypt;
+        private System.Windows.Forms.ListBox lbEncryptedFiles;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbSrcPath;
+        private System.Windows.Forms.TextBox tbDstPath;
+        private MaterialSkin.Controls.MaterialFlatButton btnDestPath;
+        private MaterialSkin.Controls.MaterialFlatButton btnOrgPath;
+        private MaterialSkin.Controls.MaterialFlatButton btnDecryptSeleced;
+        private MaterialSkin.Controls.MaterialFlatButton bntEncryptSelected;
+        private MaterialSkin.Controls.MaterialFlatButton btnDecryptAll;
+        private MaterialSkin.Controls.MaterialFlatButton btnEncryptAll;
     }
 }
 

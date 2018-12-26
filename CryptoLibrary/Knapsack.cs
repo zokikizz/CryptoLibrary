@@ -31,8 +31,8 @@ namespace CryptoLibrary
             m = 41;
             mInverse = 12;
 
-            privateKey = new uint[] { 2, 3, 7, 14, 30, 57, 120, 251 };
-            publicKey = new uint[] { 82, 123, 287, 83, 248, 373, 10, 471 };
+            privateKey = new uint[] { 0, 2, 6, 14, 29, 60, 122, 245 };
+            publicKey = new uint[] { 0, 82, 246, 83, 207, 5, 92, 225 };
 
         }
 
@@ -126,14 +126,14 @@ namespace CryptoLibrary
                     sb.Append(" ");
             }
 
-            var byteResult = Encoding.ASCII.GetBytes(sb.ToString());
+            var byteResult = Encoding.Default.GetBytes(sb.ToString());
 
             return byteResult;
         }
 
         public byte[] Decrypt(byte[] output)
         {
-            var stringOutput = Encoding.ASCII.GetString(output).Split(' ');
+            var stringOutput = Encoding.Default.GetString(output).Split(' ');
 
             var array = Array.ConvertAll(stringOutput, uint.Parse);
 
