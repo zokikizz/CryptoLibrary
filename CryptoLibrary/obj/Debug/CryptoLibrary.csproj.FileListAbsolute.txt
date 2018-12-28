@@ -4,3 +4,9 @@ C:\Users\kizz\source\repos\CryptoService\CryptoLibrary\obj\Debug\CryptoLibrary.c
 C:\Users\kizz\source\repos\CryptoService\CryptoLibrary\obj\Debug\CryptoLibrary.csproj.CoreCompileInputs.cache
 C:\Users\kizz\source\repos\CryptoService\CryptoLibrary\obj\Debug\CryptoLibrary.dll
 C:\Users\kizz\source\repos\CryptoService\CryptoLibrary\obj\Debug\CryptoLibrary.pdb
+C:\Users\kizz\Desktop\CryptoLibrary\CryptoLibrary\bin\Debug\CryptoLibrary.dll
+C:\Users\kizz\Desktop\CryptoLibrary\CryptoLibrary\bin\Debug\CryptoLibrary.pdb
+C:\Users\kizz\Desktop\CryptoLibrary\CryptoLibrary\obj\Debug\CryptoLibrary.csprojAssemblyReference.cache
+C:\Users\kizz\Desktop\CryptoLibrary\CryptoLibrary\obj\Debug\CryptoLibrary.csproj.CoreCompileInputs.cache
+C:\Users\kizz\Desktop\CryptoLibrary\CryptoLibrary\obj\Debug\CryptoLibrary.dll
+C:\Users\kizz\Desktop\CryptoLibrary\CryptoLibrary\obj\Debug\CryptoLibrary.pdb

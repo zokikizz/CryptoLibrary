@@ -163,18 +163,18 @@ namespace CryptoClient
                     this.tbKey.Text = new string(Encoding.Default.GetChars(key));
                 else
                 {
-                    //uint[] temp = new uint[key.Length / 4];
-                    //string tempKeyStr = string.Empty;
+                    uint[] temp = new uint[key.Length / 4];
+                    string tempKeyStr = string.Empty;
 
-                    //for (
-                    //    int i = 0; i < key.Length; i += 4)
-                    //{
-                    //    temp[i / 4] = BitConverter.ToUInt32(key, i);
-                    //    tempKeyStr += " " + BitConverter.ToUInt32(key, i);
-                    //}
+                    for (
+                        int i = 0; i < key.Length; i += 4)
+                    {
+                        temp[i / 4] = BitConverter.ToUInt32(key, i);
+                        tempKeyStr += " " + BitConverter.ToUInt32(key, i);
+                    }
 
-                    //this.tbKey.Text = tempKeyStr;
-                    this.tbKey.Text = string.Join(", ", key.Select(x => x.ToString()).ToArray());
+                    this.tbKey.Text = tempKeyStr;
+                    //this.tbKey.Text = string.Join(", ", key.Select(x => x.ToString()).ToArray());
                 }
                 this.gbAlgorithm.Text = this.algoritham.ToString();
             }
@@ -197,17 +197,17 @@ namespace CryptoClient
 
             if (this.algoritham.GetType() == typeof(Knapsack))
             {
-                //uint[] temp = new uint[rKey.Length / 4];
-                //string tempKeyStr = string.Empty;
+                uint[] temp = new uint[rKey.Length / 4];
+                string tempKeyStr = string.Empty;
 
-                //for (
-                //    int i = 0; i < rKey.Length; i += 4)
-                //{
-                //    temp[i / 4] = BitConverter.ToUInt32(rKey, i);
-                //    tempKeyStr += " " + BitConverter.ToUInt32(rKey, i);
-                //}
-                //this.tbKey.Text = tempKeyStr;
-                this.tbKey.Text = string.Join(", ", rKey.Select(x => x.ToString()).ToArray());
+                for (
+                    int i = 0; i < rKey.Length; i += 4)
+                {
+                    temp[i / 4] = BitConverter.ToUInt32(rKey, i);
+                    tempKeyStr += " " + BitConverter.ToUInt32(rKey, i);
+                }
+                this.tbKey.Text = tempKeyStr;
+                //this.tbKey.Text = string.Join(", ", rKey.Select(x => x.ToString()).ToArray());
                 
             }
             else
@@ -377,8 +377,6 @@ namespace CryptoClient
             using (var fbd = new FolderBrowserDialog())
             {
                 fbd.SelectedPath = path;
-                //fbd.SelectedPath
-                //string[] files = Directory.GetFiles(fbd.SelectedPath);
                 DialogResult result = fbd.ShowDialog();
 
                 if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
@@ -475,6 +473,7 @@ namespace CryptoClient
                 byte[] input = File.ReadAllBytes(this.lbFilesToEncrypt.SelectedItem.ToString());
                 byte[] output = this.algoritham.Crypt(input);
                 string dst = this.defaultDstPath + "\\" + Path.GetFileName(this.lbFilesToEncrypt.SelectedItem.ToString());
+                File.Copy(this.lbFilesToEncrypt.SelectedItem.ToString(), dst);
                 File.WriteAllBytes(dst, output);
                 File.Delete(this.lbFilesToEncrypt.SelectedItem.ToString());
             }
@@ -487,6 +486,7 @@ namespace CryptoClient
                 byte[] output = File.ReadAllBytes(this.lbEncryptedFiles.SelectedItem.ToString());
                 byte[] input = this.algoritham.Decrypt(output);
                 string dst = this.defaultSrcPath + "\\" + Path.GetFileName(this.lbEncryptedFiles.SelectedItem.ToString());
+                File.Copy(this.lbEncryptedFiles.SelectedItem.ToString(), dst);
                 File.WriteAllBytes(dst, input);
                 File.Delete(this.lbEncryptedFiles.SelectedItem.ToString());
             }
@@ -531,6 +531,14 @@ namespace CryptoClient
                 File.Delete(f);
             }
 
+        }
+
+        private void btnCloudForm_Click(object sender, EventArgs e)
+        {
+            CloudForm c = new CloudForm(this.defaultDstPath);
+            this.Hide();
+            c.ShowDialog() ;
+            this.Show();
         }
     }
 }

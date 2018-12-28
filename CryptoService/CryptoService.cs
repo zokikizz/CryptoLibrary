@@ -12,50 +12,34 @@ namespace CryptoService
     {
 
         private int blockSize = 2048;
-        private string folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "CloudFiles");
-
-        public CryptoService()
-        {
-             Directory.CreateDirectory(folderPath);
-        }
-        public string Hello(string name)
-        {
-            return "Hello " + name;
-        }
-
-        public byte[] LoadFile(string filename)
-        {
-            return null;
-        }
-
-        public void Upload(byte[] file)
-        {
-            return;
-        }
+        private string folderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory.ToString(), "CloudFiles");
 
         public bool DeleteFile(string fileName)
         {
-            string filePath = Path.Combine(folderPath, fileName);
-
-            if (File.Exists(filePath))
-            {
-                File.Delete(filePath);
-
-                if (!File.Exists(filePath))
-                    return true;
-                else
-                    return false;
-            }
-            else
-                return false;
+            File.Delete(folderPath + "\\" + fileName);
+            return true;
         }
 
-        public FileDetails DownloadFile(DownloadFile details)
+        public string[] GetFilesNames()
         {
-            var filePath = Path.Combine(folderPath, details.FileName);
+            string[] filesFullPath = Directory.GetFiles(folderPath);
+            string[] files = new string[filesFullPath.Length];
+            int i = 0;
+            foreach(string s in filesFullPath)
+                files[i++] = Path.GetFileName(s);
+            return files;
+        }
 
-            // Check if file exists
-            if (!File.Exists(filePath)) return null;
+        //Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "CloudFiles");
+
+
+        public FileDetails LoadFile(DownloadFile details)
+        {
+            string filePath = Path.Combine(folderPath, details.FileName);
+
+            if (!File.Exists(filePath))
+                return null;
+
 
             var stream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
 
@@ -67,20 +51,18 @@ namespace CryptoService
             };
         }
 
-        public string[] GetUploadedFilesNames()
+        public UploadReply Upload(FileDetails file)
         {
-            return Directory.GetFiles(folderPath);
-        }
-
-        public UploadReply UploadFile(FileDetails details)
-        {
-            string filePath = Path.Combine(folderPath, details.FileName);
+            string filePath = Path.Combine(folderPath, file.FileName);
             int numberOfSameFile = 0;
+
+            if (!Directory.Exists(folderPath))
+                Directory.CreateDirectory(folderPath);
 
             while (File.Exists(filePath))
             {
                 numberOfSameFile++;
-                string[] fileNameSplited = details.FileName.Split('.');
+                string[] fileNameSplited = file.FileName.Split('.');
                 filePath = Path.Combine(folderPath, fileNameSplited[0] + "[" + numberOfSameFile + "]." + fileNameSplited[1]);
             }
 
@@ -90,7 +72,7 @@ namespace CryptoService
                 {
                     byte[] buffer = new byte[blockSize];
 
-                    int bytesRead = details.FileStreamReader.Read(buffer, 0, blockSize);
+                    int bytesRead = file.FileStreamReader.Read(buffer, 0, blockSize);
 
                     //If there is no more blocks brake while loop
                     if (bytesRead == 0)
@@ -115,6 +97,5 @@ namespace CryptoService
             else
                 return new UploadReply() { UploadSuccess = false };
         }
-
     }
 }

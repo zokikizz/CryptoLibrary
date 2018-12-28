@@ -4,10 +4,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.28010.2050
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoService", "CryptoService\CryptoService.csproj", "{19B3C3F1-2B1F-43CA-8C93-A3BA686F4191}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B7BA2921-29F0-4C6E-8D71-7A1932A28E51} = {B7BA2921-29F0-4C6E-8D71-7A1932A28E51}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoLibrary", "CryptoLibrary\CryptoLibrary.csproj", "{B7BA2921-29F0-4C6E-8D71-7A1932A28E51}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoClient", "CryptoClient\CryptoClient.csproj", "{0E8D70BE-BA3A-4E72-B409-28D0302D1882}"
+	ProjectSection(ProjectDependencies) = postProject
+		{19B3C3F1-2B1F-43CA-8C93-A3BA686F4191} = {19B3C3F1-2B1F-43CA-8C93-A3BA686F4191}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

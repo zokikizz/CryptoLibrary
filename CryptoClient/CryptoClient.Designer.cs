@@ -63,8 +63,7 @@
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.tbSrcPath = new System.Windows.Forms.TextBox();
             this.tbDstPath = new System.Windows.Forms.TextBox();
-            this.materialRaisedButton2 = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnCloudForm = new MaterialSkin.Controls.MaterialRaisedButton();
             this.lbFilesToEncrypt = new System.Windows.Forms.ListBox();
             this.gbKnapSackProp.SuspendLayout();
             this.gbAlgorithm.SuspendLayout();
@@ -375,8 +374,7 @@
             this.gbFiles.Controls.Add(this.materialLabel3);
             this.gbFiles.Controls.Add(this.tbSrcPath);
             this.gbFiles.Controls.Add(this.tbDstPath);
-            this.gbFiles.Controls.Add(this.materialRaisedButton2);
-            this.gbFiles.Controls.Add(this.materialRaisedButton1);
+            this.gbFiles.Controls.Add(this.btnCloudForm);
             this.gbFiles.Controls.Add(this.lbFilesToEncrypt);
             this.gbFiles.Location = new System.Drawing.Point(803, 77);
             this.gbFiles.Name = "gbFiles";
@@ -547,33 +545,20 @@
             this.tbDstPath.TabIndex = 19;
             this.tbDstPath.MouseHover += new System.EventHandler(this.tbDstPath_MouseHover);
             // 
-            // materialRaisedButton2
+            // btnCloudForm
             // 
-            this.materialRaisedButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialRaisedButton2.Depth = 0;
-            this.materialRaisedButton2.Icon = null;
-            this.materialRaisedButton2.Location = new System.Drawing.Point(318, 519);
-            this.materialRaisedButton2.MouseState = MaterialSkin.MouseState.Hover;
-            this.materialRaisedButton2.Name = "materialRaisedButton2";
-            this.materialRaisedButton2.Primary = true;
-            this.materialRaisedButton2.Size = new System.Drawing.Size(285, 48);
-            this.materialRaisedButton2.TabIndex = 3;
-            this.materialRaisedButton2.Text = "Download";
-            this.materialRaisedButton2.UseVisualStyleBackColor = true;
-            // 
-            // materialRaisedButton1
-            // 
-            this.materialRaisedButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialRaisedButton1.Depth = 0;
-            this.materialRaisedButton1.Icon = null;
-            this.materialRaisedButton1.Location = new System.Drawing.Point(6, 519);
-            this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.Hover;
-            this.materialRaisedButton1.Name = "materialRaisedButton1";
-            this.materialRaisedButton1.Primary = true;
-            this.materialRaisedButton1.Size = new System.Drawing.Size(304, 48);
-            this.materialRaisedButton1.TabIndex = 2;
-            this.materialRaisedButton1.Text = "Upload";
-            this.materialRaisedButton1.UseVisualStyleBackColor = true;
+            this.btnCloudForm.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnCloudForm.Depth = 0;
+            this.btnCloudForm.Icon = null;
+            this.btnCloudForm.Location = new System.Drawing.Point(6, 519);
+            this.btnCloudForm.MouseState = MaterialSkin.MouseState.Hover;
+            this.btnCloudForm.Name = "btnCloudForm";
+            this.btnCloudForm.Primary = true;
+            this.btnCloudForm.Size = new System.Drawing.Size(596, 81);
+            this.btnCloudForm.TabIndex = 2;
+            this.btnCloudForm.Text = "Open Cloud form";
+            this.btnCloudForm.UseVisualStyleBackColor = true;
+            this.btnCloudForm.Click += new System.EventHandler(this.btnCloudForm_Click);
             // 
             // lbFilesToEncrypt
             // 
@@ -633,8 +618,7 @@
         private System.Windows.Forms.MenuStrip msOptions;
         private MaterialSkin.Controls.MaterialLabel lbHint;
         private System.Windows.Forms.GroupBox gbFiles;
-        private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton2;
-        private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
+        private MaterialSkin.Controls.MaterialRaisedButton btnCloudForm;
         private System.Windows.Forms.ListBox lbFilesToEncrypt;
         private System.Windows.Forms.ListBox lbEncryptedFiles;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;

@@ -39,6 +39,8 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,6 +52,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CloudForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CloudForm.Designer.cs">
+      <DependentUpon>CloudForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\CryptoService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="CryptoClient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,6 +71,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CloudForm.resx">
+      <DependentUpon>CloudForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CryptoClient.resx">
       <DependentUpon>CryptoClient.cs</DependentUpon>
     </EmbeddedResource>
@@ -70,6 +86,25 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Connected Services\CryptoService\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CryptoService\CryptoClient.CryptoService.FileDetails.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CryptoService\CryptoClient.CryptoService.UploadReply.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CryptoService\Message.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CryptoService\service.wsdl" />
+    <None Include="Connected Services\CryptoService\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CryptoService\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -88,10 +123,24 @@
       <Project>{b7ba2921-29f0-4c6e-8d71-7a1932a28e51}</Project>
       <Name>CryptoLibrary</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CryptoService\CryptoService.csproj">
-      <Project>{19b3c3f1-2b1f-43ca-8c93-a3ba686f4191}</Project>
-      <Name>CryptoService</Name>
-    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\CryptoService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CryptoService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CryptoService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CryptoService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

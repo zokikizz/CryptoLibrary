@@ -5,3 +5,10 @@ C:\Users\kizz\source\repos\CryptoService\CryptoService\obj\Debug\CryptoService.c
 C:\Users\kizz\source\repos\CryptoService\CryptoService\obj\Debug\CryptoService.csproj.CoreCompileInputs.cache
 C:\Users\kizz\source\repos\CryptoService\CryptoService\obj\Debug\CryptoService.dll
 C:\Users\kizz\source\repos\CryptoService\CryptoService\obj\Debug\CryptoService.pdb
+C:\Users\kizz\Desktop\CryptoLibrary\CryptoService\bin\Debug\CryptoService.dll.config
+C:\Users\kizz\Desktop\CryptoLibrary\CryptoService\bin\Debug\CryptoService.dll
+C:\Users\kizz\Desktop\CryptoLibrary\CryptoService\bin\Debug\CryptoService.pdb
+C:\Users\kizz\Desktop\CryptoLibrary\CryptoService\obj\Debug\CryptoService.csprojAssemblyReference.cache
+C:\Users\kizz\Desktop\CryptoLibrary\CryptoService\obj\Debug\CryptoService.csproj.CoreCompileInputs.cache
+C:\Users\kizz\Desktop\CryptoLibrary\CryptoService\obj\Debug\CryptoService.dll
+C:\Users\kizz\Desktop\CryptoLibrary\CryptoService\obj\Debug\CryptoService.pdb

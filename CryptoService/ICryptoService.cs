@@ -11,14 +11,16 @@ namespace CryptoService
     public interface ICryptoService
     {
         [OperationContract]
-        void Upload(byte []file);
+        UploadReply Upload(FileDetails file);
 
         [OperationContract]
-        byte[] LoadFile(string filename);
+        FileDetails LoadFile(DownloadFile details);
 
         [OperationContract]
-        string Hello(string name);
+        string[] GetFilesNames();
 
+        [OperationContract]
+        bool DeleteFile(string fileName);
     }
 
 

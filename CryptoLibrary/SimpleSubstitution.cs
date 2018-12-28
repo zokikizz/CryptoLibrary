@@ -33,14 +33,13 @@ namespace CryptoLibrary
 
         public byte[] Crypt(byte[] input)
         {
-            string tempText = System.Text.Encoding.UTF8.GetString(input);
+            char[] text = System.Text.Encoding.UTF8.GetChars(input);
 
-            input = utf8.GetBytes(tempText);
+            //input = utf8.GetBytes(tempText);
 
-            byte[] res = new byte[input.Length];
-            char[] text = Encoding.UTF8.GetChars(input);
+            byte[] res = new byte[text.Length];
 
-            for(int i = 0; i < input.Length; i++)
+            for(int i = 0; i < text.Length; i++)
             {
                 if(coding.ContainsKey(text[i].ToString()))
                 {
