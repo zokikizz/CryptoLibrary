@@ -15,17 +15,3 @@ C:\Users\kizz\source\repos\CryptoService\CryptoClient\bin\Debug\CryptoService.dl
 C:\Users\kizz\source\repos\CryptoService\CryptoClient\bin\Debug\CryptoLibrary.pdb
 C:\Users\kizz\source\repos\CryptoService\CryptoClient\bin\Debug\CryptoService.pdb
 C:\Users\kizz\source\repos\CryptoService\CryptoClient\bin\Debug\CryptoService.dll.config
-C:\Users\kizz\Desktop\CryptoLibrary\CryptoClient\bin\Debug\CryptoClient.exe.config
-C:\Users\kizz\Desktop\CryptoLibrary\CryptoClient\bin\Debug\CryptoClient.exe
-C:\Users\kizz\Desktop\CryptoLibrary\CryptoClient\bin\Debug\CryptoLibrary.dll
-C:\Users\kizz\Desktop\CryptoLibrary\CryptoClient\bin\Debug\CryptoLibrary.pdb
-C:\Users\kizz\Desktop\CryptoLibrary\CryptoClient\obj\Debug\CryptoClient.csprojAssemblyReference.cache
-C:\Users\kizz\Desktop\CryptoLibrary\CryptoClient\obj\Debug\CryptoClient.CryptoClientForm.resources
-C:\Users\kizz\Desktop\CryptoLibrary\CryptoClient\obj\Debug\CryptoClient.Properties.Resources.resources
-C:\Users\kizz\Desktop\CryptoLibrary\CryptoClient\obj\Debug\CryptoClient.csproj.GenerateResource.cache
-C:\Users\kizz\Desktop\CryptoLibrary\CryptoClient\obj\Debug\CryptoClient.csproj.CoreCompileInputs.cache
-C:\Users\kizz\Desktop\CryptoLibrary\CryptoClient\obj\Debug\CryptoClient.csproj.CopyComplete
-C:\Users\kizz\Desktop\CryptoLibrary\CryptoClient\obj\Debug\CryptoClient.exe
-C:\Users\kizz\Desktop\CryptoLibrary\CryptoClient\obj\Debug\CryptoClient.pdb
-C:\Users\kizz\Desktop\CryptoLibrary\CryptoClient\bin\Debug\CryptoClient.pdb
-C:\Users\kizz\Desktop\CryptoLibrary\CryptoClient\obj\Debug\CryptoClient.CloudForm.resources
